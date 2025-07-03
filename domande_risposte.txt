@@ -1,0 +1,79 @@
+# DOMANDE E RISPOSTE - ESAMI METODI NUMERICI
+
+## DOMANDE A CROCETTE
+
+### 1. Reti MLP (Multilayer Perceptron) - FALSA
+**Risposta:** Le reti MLP sono in grado di apprendere solo relazioni lineari tra i dati di input e output
+
+### 2. Learning Rate - CORRETTA
+**Risposta:** Un parametro che controlla la velocità con cui i pesi della rete vengono aggiornati durante il training
+
+### 3. Layer Convoluzionali - VERA
+**Risposta:** I layer convoluzionali eseguono una convoluzione tra i filtri convoluzionali e la feature map in ingresso, producendo una nuova feature map
+
+### 4. Funzione di Attivazione
+**Risposta:** Introdurre una non linearità nel flusso di informazioni della rete
+
+### 5. Suddivisione del Dataset - FALSA
+**Risposta:** Il set di validation viene utilizzato per trovare le etichette dei dati di input
+
+### 6. Machine Learning
+**Risposta:** Fornire alla macchina i dati affinché impari da sola a risolvere il problema
+
+### 7. Validation Set
+**Risposta:** A trovare i migliori iperparametri del modello
+
+### 8. CNN (Convolutional Neural Networks)
+**Risposta:** Layer convolutivi seguiti da layer di pooling, flatten layer e neuroni completamente connessi
+
+### 9. Softmax
+**Risposta:** Trasforma i digits della rete in probabilità
+
+### 10. Apprendimento Reti Neurali
+**Risposta:** Minimizzare la funzione obiettivo
+
+### 11. Multi-Layer Perceptron
+**Risposta:** Una rete multi-livello composta da neuroni completamente connessi
+
+### 12. Task di Regressione
+**Risposta:** Nel predire un valore continuo in output
+
+### 13. Epoca nel Training
+**Risposta:** Il numero di volte in cui l'intero set di dati di training viene esposto alla rete
+
+## DOMANDE APERTE
+
+### 1. Forward e Backward Propagation
+**Domanda:** Descrivi in cosa consiste la fase di forward-propagation e back-propagation nell'ambito del training di una rete neurale, soffermandoti sull'importanza dell'algoritmo di backpropagation per il calcolo delle derivate parziali della funzione costo rispetto ai pesi di tutti i layer.
+
+**Risposta:** 
+- **Forward propagation:** I dati fluiscono dai layer di input verso l'output. Ogni neurone calcola la somma pesata degli input e applica la funzione di attivazione. L'output finale viene confrontato con il target per calcolare la loss.
+- **Backward propagation:** L'algoritmo calcola i gradienti della funzione di loss rispetto a tutti i pesi usando la regola della catena. I gradienti si propagano all'indietro dal layer di output verso quelli precedenti. Questo permette di aggiornare tutti i pesi simultaneamente per minimizzare l'errore.
+- **Importanza:** Backpropagation rende possibile il training efficiente di reti profonde calcolando automaticamente tutte le derivate parziali necessarie.
+
+### 2. Gradient Descent con Momento
+**Domanda:** Descrivi in dettaglio l'algoritmo di discesa del gradiente con momento. Quali sono le motivazioni che hanno portato alla sua introduzione rispetto alla discesa del gradiente standard? Fornisci la formula matematica dell'aggiornamento dei pesi.
+
+**Risposta:**
+- **Motivazioni:** Il momento aiuta ad accelerare la convergenza e ridurre le oscillazioni. Mantiene una "memoria" delle direzioni precedenti per attraversare più velocemente valli strette e regioni piatte.
+- **Formula:** 
+  - v_t = β * v_{t-1} + η * ∇J(w_t)
+  - w_{t+1} = w_t - v_t
+- **Vantaggi:** Riduce le oscillazioni, accelera la convergenza in direzioni consistenti, aiuta a sfuggire da minimi locali poco profondi.
+
+### 3. Learning Rate e Convergenza
+**Domanda:** Spiega in modo dettagliato come il learning rate influenza la convergenza di una rete neurale durante il training. Quali sono le conseguenze di un learning rate troppo alto o troppo basso?
+
+**Risposta:**
+- **Learning rate troppo alto:** Può causare divergenza, oscillazioni attorno al minimo, instabilità del training.
+- **Learning rate troppo basso:** Convergenza molto lenta, rischio di rimanere bloccati in minimi locali.
+- **Strategie adattive:** Step decay, decadimento esponenziale, learning rate scheduling, Adam optimizer per adattamento automatico.
+
+### 4. Ottimizzatori Adattivi
+**Domanda:** Learning rate adattivo per ogni peso: Adagrad, RMSProp, Adadelta, Adam. Formula di aggiornamento dei pesi e discussioni.
+
+**Risposta:**
+- **Adagrad:** Accumula i quadrati dei gradienti passati, riduce il learning rate per parametri aggiornati frequentemente.
+- **RMSProp:** Usa media mobile esponenziale per evitare che il learning rate diventi troppo piccolo.
+- **Adam:** Combina momento e RMSProp. Formula: m_t = β₁m_{t-1} + (1-β₁)g_t; v_t = β₂v_{t-1} + (1-β₂)g_t²; w_{t+1} = w_t - η * m̂_t/(√v̂_t + ε)
+- **Vantaggi:** Adattamento automatico del learning rate, convergenza più robusta, migliori prestazioni su problemi complessi.
